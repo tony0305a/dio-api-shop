@@ -1,6 +1,24 @@
 CREATE TABLE IF NOT EXISTS products(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR NOT NULL,
+    titlecolor VARCHAR NOT NULL,
     name VARCHAR NOT NULL,
     img VARCHAR NOT NULL,
     price VARCHAR NOT NULL,
     description VARCHAR NOT NULL
+)
+CREATE TABLE IF NOT EXISTS promos(
+    id SERIAL PRIMARY KEY,
+    img VARCHAR NOT NULL
+)
+CREATE TABLE IF NOT EXISTS users(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL
+)
+CREATE TABLE IF NOT EXISTS cart_items(
+    id SERIAL PRIMARY KEY,
+    userid INT NOT NULL,
+    content jsonb
 )
