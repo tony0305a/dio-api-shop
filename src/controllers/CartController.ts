@@ -16,6 +16,12 @@ class CartController{
 
         return res.status(200).json(items)
     }
+    async delete(req:Request, res:Response){
+        const {itemid} = req.params
+
+        const removed = await cartService.delete(itemid)
+        return res.status(200).json({deleted:removed})
+    }
  
 }
 export {CartController}

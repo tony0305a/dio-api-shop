@@ -27,4 +27,5 @@ router.post('/user/login',userController.login)
 //Cart Routes
 router.post('/cart/add',cartController.add)
 router.get('/cart/:userid',cartController.read)
+router.delete('/cart/delete/:itemid',cartController.delete)
 export default router
