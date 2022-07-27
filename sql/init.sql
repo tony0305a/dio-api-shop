@@ -3,7 +3,8 @@ CREATE TABLE IF NOT EXISTS products(
     title VARCHAR NOT NULL,
     titlecolor VARCHAR NOT NULL,
     name VARCHAR NOT NULL,
-    img VARCHAR NOT NULL,
+    imgs jsonb,
+    sizes jsonb,
     price VARCHAR NOT NULL,
     description VARCHAR NOT NULL
 )
