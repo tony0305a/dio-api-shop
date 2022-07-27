@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import ProductService from "../services/ProductService";
+import {ProductService} from "../services/ProductService";
 const productService = new ProductService
 class ProductController{
     
@@ -7,15 +7,31 @@ class ProductController{
         const title = req.body.title
         const titlecolor = req.body.titlecolor
         const name = req.body.name
-        const img = req.body.img
+        const imgs = req.body.imgs
+        const sizes = req.body.sizes
         const price = req.body.price
         const description = req.body.description
-        const prod = await productService.create({name:name,img:img,price:price,description:description,title:title,titlecolor:titlecolor})
+        const prod = await productService.create({name:name,imgs:imgs,sizes:sizes,price:price,description:description,title:title,titlecolor:titlecolor})
         return res.status(201).json(prod)
+    }
+    async read(req:Request, res:Response){
+        const {id} = req.params
+       
+        const prod = await productService.read(id)
+
+        if(id == undefined){
+            return res.status(400).json({})
+        }
+
+        return res.status(200).json(prod)
+
+        
+
+        return res.status(200).json({})
     }
     async findAll(req:Request,res:Response){
         const prods = await productService.findAll()
         return res.status(200).json(prods)
     }
 }
-export  {ProductController} 
+export {ProductController} 

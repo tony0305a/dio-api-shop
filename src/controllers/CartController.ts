@@ -11,6 +11,7 @@ class CartController{
     }
     async read(req:Request, res:Response){
         const {userid} = req.params
+        console.log(userid)
 
         const items = await cartService.read(userid)
 
@@ -19,7 +20,7 @@ class CartController{
     async delete(req:Request, res:Response){
         const {itemid} = req.params
 
-        const removed = await cartService.delete(itemid)
+        const removed = await cartService.delete(itemid) 
         return res.status(200).json({deleted:removed})
     }
  

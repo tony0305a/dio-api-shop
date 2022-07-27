@@ -14,14 +14,19 @@ class CartService{
             userid,
             content    
         )VALUES($1,$2)
+        RETURNING id,userid, content
         `;
         const values = [
             Item.userid,
             Item.content
         ]
         const {rows} = await db.query(query,values)
-        const [cartItem] = rows
-        return cartItem
+        const [newItem] = rows
+        return {
+            id:newItem.id,
+            userid:newItem.userid,
+            content:newItem.content
+        }
     }
     async read(userId:string){
         const query = `

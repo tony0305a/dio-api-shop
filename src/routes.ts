@@ -16,6 +16,7 @@ router.get('/', (req,res)=>{
 
 //Product routes
 router.post('/products/add',productController.create)
+router.get('/products/:id',productController.read)
 router.get('/products',productController.findAll)
 //Promo routes
 router.post('/promo/add',promoController.create)

@@ -30,9 +30,9 @@ class UserController {
 
     const login = await userService.login(email,password)
     if(login.length !==0){
-        return res.status(200).json(login)
+        return res.status(200).json({user:login})
     } else {
-        return res.status(200).json([])
+        return res.status(200).json({user:false})
     }
 
   }
