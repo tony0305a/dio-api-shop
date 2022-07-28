@@ -16,12 +16,12 @@ class PromoService {
     const [newPromo] = rows;
     return newPromo;
   }
-  async findAll(){ 
+  async findAll() {
     const query = `
     SELECT * FROM promos
     `;
-    const {rows} = await db.query(query)
-    return rows || []
+    const { rows } = await db.query(query);
+    return rows || [];
   }
 }
 export { PromoService };

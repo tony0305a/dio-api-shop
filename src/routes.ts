@@ -2,6 +2,7 @@ import { Router } from "express";
 import { CartController } from "./controllers/CartController";
 import {ProductController} from "./controllers/ProductController";
 import { PromoController } from "./controllers/PromoController";
+import { RatingController } from "./controllers/RatingController";
 import { UserController } from "./controllers/UserController";
 
 const router = Router()
@@ -9,6 +10,7 @@ const productController = new ProductController()
 const promoController = new PromoController()
 const userController = new UserController()
 const cartController = new CartController()
+const ratingController = new RatingController()
 
 router.get('/', (req,res)=>{
     res.json({message:'hello'})
@@ -29,4 +31,8 @@ router.post('/user/login',userController.login)
 router.post('/cart/add',cartController.add)
 router.get('/cart/:userid',cartController.read)
 router.delete('/cart/delete/:itemid',cartController.delete)
+//Rating Routes
+router.post('/rating/add',ratingController.create)
+router.get('/rating/:id',ratingController.read)
+router.get('/rating/check/:userid/:prodid',ratingController.validate)
 export default router

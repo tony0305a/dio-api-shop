@@ -27,7 +27,7 @@ class UserService {
     const { rows } = await db.query(query);
     return rows || [];
   }
-  async login(email:string, password:string) {
+  async login(email: string, password: string) {
     const query = `
         SELECT * FROM users WHERE email='${email}' AND password='${password}'
     `;
