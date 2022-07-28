@@ -23,3 +23,9 @@ CREATE TABLE IF NOT EXISTS cart_items(
     userid INT NOT NULL,
     content jsonb
 )
+CREATE TABLE IF NOT EXISTS ratings(
+    id SERIAL PRIMARY KEY,
+    userid VARCHAR NOT NULL,
+    prodid VARCHAR NOT NULL,
+    stars INT NOT NULL
+)
